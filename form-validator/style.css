@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&display=swap');
+
+/* this is used for the success and error message */
+:root {
+  --success-color:#2ecc71;
+  --error-color: #e74c3c;
+}
+
+/* by using the code below, so that the padding won't affect the element (box-sizing: border-box)  */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f9fafb;
+  font-family: "Open Sans", sans-serif;
+  display: flex; /* this will allow to easily manuever the child of it */
+  align-items:center ;
+  justify-content: center; /* the two align-items and justify-content, align the items to the center horizontally */
+  min-height: 100vh; /* this will adjust vertically */
+  margin: 0;
+}
+
+.container {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* give the drop shadow around the box */
+  width: 400px;
+}
+
+h2 {
+  text-align: center;
+  margin: 0 0 20px;
+}
+
+.form {
+  padding: 30px 40px; /* top and bottom for the first number and the second one is for the left and right padding of the content (text) */
+}
+
+.form-control {
+  margin-bottom: 10px;
+  padding-bottom:20px;
+  position: relative; /* when you want to position absolute within the parent element, the parent element must be relative */
+}
+
+.form-control label {
+  color: #777;
+  display: block; /* it will go by default be in-line so we will use block so they can go on their own line and push the next element down */
+  margin-bottom: 5px;
+}
+
+.form-control input {
+  border: 2px solid #f0f0f0;
+  border-radius: 4px;
+  display: block; /* makes this to be on their own line */
+  width: 100%; /* so it can stretches all the way across  */
+  padding: 10px;
+  font-size: 14px;
+}
+
+/* to change color of the outline for the input */
+.form-control input:focus {
+  outline: 0;
+  border-color: #777;
+}
+
+/* both the success and error classes will not be present at the HTML file but it will be used for Javascript*/
+/* we do not need to input the color because we made a root at the very top of our CSS and to use those color we need to use (var()) */
+.form-control.success input {
+  border-color: var(--success-color);
+}
+
+.form-control.error input {
+  border-color: var(--error-color);
+}
+
+.form-control small {
+  color:var(--error-color);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  visibility: hidden; /* visibility: hidden will hide the error message, we did not use display: none because it will collapse everything around it */
+}
+
+/* error and small will be used for CSS */
+.form-control.error small{
+  visibility: visible;
+}
+
+.form button {
+  cursor: pointer;
+  background-color: #3498db;
+  border: 2px solid #3498db;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px;
+  margin-top: 20px;
+  width: 100%; /* this will help spread it all the way across (it should be 100% remember the % sign */
+}
